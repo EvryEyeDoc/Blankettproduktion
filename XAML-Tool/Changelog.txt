@@ -1,0 +1,165 @@
+2015-10-06
+
+* Zoom-funktion i trädeditorn.
+
+* Noder i trädeditorn markeras inte längre när man klickar på plus/minus för att öppna/stänga dem.
+
+* Fixade en bugg i trädeditorn med skapandet av HeaderItem. Om man markerade en huduvnod och sedan en av dess undernoder och klickade på HeaderItem så frös programmet, eftersom den då försökte lägga till huvudnoden i sig själv.
+
+* Smått&Gott: "Normalisera Path" har bytt namn till "Normalisera" och hanterar nu även Glyphs och ifyllnadsfält!
+
+* Smått&Gott: Felsökning! Kan hitta vanliga misstag i blankettfilerna, t.ex. om MaxLenght är mer än datatypen o.s.v.
+
+* XPS > XAML: Fixade en krasch (Index out of bounds) som blev med tomma Incides.
+
+* Allmänt: Rättat till tabbordning överallt.
+
+* Resultatsruta även för trädeditorn så att man smidigt kan kopiera resultatet. Man kan fortfarande spara fil om man vill.
+
+* XPS > XAML: Gör en ny Glyphs om det inte går att uppnå en tillräckligt nära position med mellanslag
+
+* XSD/XML: Rättat bugg där den inte kunde hantera två olika xpath som använder samma attributvärde 
+(t.ex. string50value[@a='2'] och boolean[@a='2'])
+
+* Rensa XAML: Rättat till RenderTransformFix (igen) så att den roterar/skalar saker korrekt.
+
+* Rensa XAML: XML-teckenkoder (t.ex. &quot; och &#xD;&#xA;) bevaras
+
+
+
+2014-07-16
+
+* XPS till XAML har nu stöd för Glyphs som saknar UnicodeString
+
+* Kunde ibland bli dubbla RenderTransforms vid Rensa XAML.
+
+* XPS till XAML skapar inte längre oönskade BoldSimulation (kunde ske i vissa fall)
+
+* XSD/XML visar nu resultatet i textboxar som man kan kopiera ifrån istället för att man ska behöva spara ner onödiga filer som man ändå tar bort.
+
+* Rensa XAML: Kombinera Min-/MaxWidth gäller inte längre för element i en WrapPanel
+
+* XPS till XAML är lite bättre på att avgöra vilken font som passar.
+
+* Rensa XAML: "RenderTransform -> Canvas.Left/Top" är mycket bättre på att ta hänsyn till roterad text och kryssrutor.
+
+* Småkrafs. T.ex. dialogen för Matcha typsnitt har nu en avbrytningsknapp, XPS till XAML skriver "\r\n" istället för "\n", XMLTotal sparar inte längre med Byte Order Mark.
+
+
+
+2014-06-04
+
+* Förbättrat undo-funktionaliteten i Trädeditorn och lagt till en bekräftelse när man stänger (Vill du spara?).
+
+* Tagit bort flimmer (eller blinkande) i Trädeditorn genom att lägga till stöd för Double Buffering
+
+* XPS till XAML!!! Nu kan man ta en hel XPS-fil och göra till XAML, med rätt typsnitt och allt!
+  OBS: Fortfarande WIP. Ibland sätts BoldSimulation där det inte ska och lite sånt.
+
+* Fler ord till AutoDiacritic
+
+* Gjort om stora delar av Path2Glyphs. Vet inte om det blivit bättre.
+
+* Lagt till och ändrat ordning på några attribut till Rensa > Sortera attribut
+
+* Huvudfönstret döljs när man öppnar trädeditorn. Den kunde vara lite i vägen innan.
+
+* OBS: Rensa > RenderTransform, denna är inte helt OK. Tar inte hänsyn till roteringar eller medvetna kryssroteförstoringar. Var försiktig!
+
+
+
+2013-05-17
+
+* Rättat en bugg i Path2Glyphs som gjorde att programmet kraschade om det tolkade en path som '<'.
+
+* Bättre XML-generering som nu klarar av att hantera '/' i ett attributvärde i en xpath 
+("formlist/formgroup[@typ='a/b']/...")
+och som hanterar ej satt minOccurs i schemat som minOccurs="0", och som kräver att attribut används i xpath om typen har ett attribut.
+
+* Fler ord till AutoDiacritic
+
+* Nytt alternativ i Rensa XAML: RenderTransform -> Canvas.Top/Left
+Detta översätter RenderTransform till Canvas.Left/Top och OriginX/Y och FontRenderingEmSize
+
+* Ny flik: Unicode! Användbart ibland, när alla UnicodeString i blanketten är fel.
+
+* Normalisera path har en ny kryssruta som gör att man kan välja om man vill ha med onödiga nollor i slutet av ett värde (t.ex. 0.00 istället för 0, eller 1.20 istället för 1.2)
+
+
+
+2012-10-26
+
+* "Ta bort _" utbytt mot "Ersätt text", där man kan ersätta vad som helst, inte bara understreck.
+
+* formlist XSD-generering skapar inte längre dubbla ListValue (hände om två grupper använde gemensamt värde)
+
+* AutoCaps har utökats. Nu kan man välja mellan att göra om alla bokstäver till gemener eller versaler, eller bara första bokstaven (som det var innan), eller alla bokstäver efter mellanslag.
+
+* Trädgenerering kan nu även baseras på expanders
+
+* Fler ord till AutoDiacritic
+
+* Undo/Redo i trädeditor
+
+* Stöd för xpaths med citationstecken (och &quot;) istället för bara apostrof
+
+
+
+2012-04-26
+
+* XMLTotal kan nu hantera multipla identifierare. Blev fel innan om xpath var t.ex. 
+.../statusED1/[@typ='Ordination'][@event='EV1']/tidpunkt
+
+* XMLTotal: Man kan välja att ignorera valideringen av enumvärden. Står det i XAML en xpath med felaktiga enums så hamnar de i XML:et ändå!
+
+* Path>Glyphs! Med denna funktion kan du göra om vektoriserade bilder i en blankett som föreställer bokstäver, till bokstäver! Det är dock inte så vanligt att man får en XPS där denna funktion kan användas...
+
+* Normalisera Path (till Smått&Gott)! Detta kan ändra storlek och position på själva punkterna i Path-data.
+
+* Fler ord till AutoDiacritic
+
+* Knapparna i Trädeditorn har flyttats om så att de är mer logiskt utplacerade, grupperade efter funktion.
+
+
+
+2011-12-22
+
+* Smått&Gott! Här kan man testa datumformat, kombinera paths extrahera xpaths och konvertera SVG till XAML.
+
+* Krafs, som autofokus till relevant fält vid felmeddelande
+
+* Lite fler alternativ vid generering av XML-/XSD-kod för formlist. Detta för att XMLTotal gör XML-delen obsolet. Man kan dessutom välja bort Documentation så behöver man inte ta bort det manuellt.
+
+* Fixat en liten bugg i Trädeditorn, när man har flera markerade och trycker ctrl+höger.
+
+* Fler ord till AutoDiacritic
+
+* XSD/XML skapade dubletter på enum i vissa fall.
+
+* Bytt plats på knappar i Trädeditorn
+
+
+
+2011-10-12
+
+* Lite fler ord till AutoDiacritic
+
+* Resulterande fil från "Rensa XAML" bevarar nu whitespace och lägger inte in "&#x9;" istället för tab på attributvärden (ofta förekommande i Path Data)
+
+* Indentering för "Rensa XAML" går inte längre justera, i och med punkten ovan.
+
+* "Ta bort _" tillagt i Trädeditor. Funktionen byter ut understreck mot mellanslag.
+
+* Resultatet av "skapa XML" innefattar nu <formlist> så att det går lättare att ersätta i xml-filen. (Ersätt hela taggen istället för innehållet)
+
+* Man kan nu även öppna befintligt träd för editering i trädeditorn. Innan kunde man bara generera nytt från XAML-kod.
+
+* Vissa småbuggar fixade.
+
+* XMLTotal! Nu är det busenkelt att skapa ett komplett XML!
+
+
+
+2011-07-04
+
+* Första versionen i CVS:en
